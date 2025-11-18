@@ -86,9 +86,19 @@
   ],
   "skills": [
     {
+      "name": "mongodb-atlas-setup",
+      "description": "Master MongoDB Atlas cloud setup, cluster configuration, backups, and monitoring. Get production-ready cloud database.",
+      "file": "skills/mongodb-atlas-setup/SKILL.md"
+    },
+    {
       "name": "mongodb-crud-operations",
       "description": "Master MongoDB CRUD operations and document manipulation",
       "file": "skills/mongodb-crud/SKILL.md"
+    },
+    {
+      "name": "mongodb-find-queries",
+      "description": "Master find() queries with filters, operators, sorting, and pagination. Extract data efficiently.",
+      "file": "skills/mongodb-find-queries/SKILL.md"
     },
     {
       "name": "mongodb-aggregation-pipeline",
@@ -101,14 +111,29 @@
       "file": "skills/mongodb-schema-design/SKILL.md"
     },
     {
+      "name": "mongodb-index-creation",
+      "description": "Master index creation and types. Dramatically improve query performance with proper indexing.",
+      "file": "skills/mongodb-index-creation/SKILL.md"
+    },
+    {
       "name": "mongodb-indexing-optimization",
       "description": "Master indexing and query optimization techniques",
       "file": "skills/mongodb-indexing/SKILL.md"
     },
     {
+      "name": "mongodb-transactions",
+      "description": "Master MongoDB ACID transactions for multi-document operations. Guarantee data consistency.",
+      "file": "skills/mongodb-transactions/SKILL.md"
+    },
+    {
       "name": "mongodb-replication-sharding",
       "description": "Master replication, sharding, and distributed deployments",
       "file": "skills/mongodb-replication/SKILL.md"
+    },
+    {
+      "name": "mongodb-authentication",
+      "description": "Master MongoDB authentication methods including SCRAM, X.509, and LDAP. Secure your deployments.",
+      "file": "skills/mongodb-authentication/SKILL.md"
     },
     {
       "name": "mongodb-security-admin",
