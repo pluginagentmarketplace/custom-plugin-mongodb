@@ -1,0 +1,130 @@
+{
+  "name": "Developer Roadmap Marketplace Plugin",
+  "version": "1.0.0",
+  "author": "Plugin Agent Marketplace",
+  "description": "Comprehensive learning plugin with 7 specialized agents covering 71 developer roadmaps. Master frontend, backend, DevOps, AI/ML, databases, architecture, and security.",
+  "repository": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
+  "license": "MIT",
+  "keywords": [
+    "developer-roadmap",
+    "learning",
+    "career-development",
+    "skill-building",
+    "web-development",
+    "backend",
+    "devops",
+    "ai-ml",
+    "databases",
+    "architecture",
+    "security"
+  ],
+  "agents": [
+    {
+      "id": "frontend-specialist",
+      "name": "Frontend Development Specialist",
+      "description": "Expert in frontend technologies, frameworks, and modern web development (React, Vue, Angular, Next.js, TypeScript)",
+      "file": "agents/01-frontend-development.md"
+    },
+    {
+      "id": "backend-specialist",
+      "name": "Backend Development Specialist",
+      "description": "Specialized in server-side technologies, frameworks, and backend architecture (Node.js, Python, Java, Go, Rust)",
+      "file": "agents/02-backend-development.md"
+    },
+    {
+      "id": "devops-specialist",
+      "name": "DevOps & Cloud Infrastructure Specialist",
+      "description": "Expert in DevOps practices, cloud platforms, and infrastructure as code (AWS, Kubernetes, Docker, Terraform, Linux)",
+      "file": "agents/03-devops-infrastructure.md"
+    },
+    {
+      "id": "ai-ml-specialist",
+      "name": "AI & Machine Learning Specialist",
+      "description": "Specialized in AI engineering, data science, ML models, and AI Agent development",
+      "file": "agents/04-ai-machine-learning.md"
+    },
+    {
+      "id": "database-specialist",
+      "name": "Database & Data Management Specialist",
+      "description": "Expert in database design, optimization, and management (PostgreSQL, MongoDB, Redis, SQL)",
+      "file": "agents/05-database-management.md"
+    },
+    {
+      "id": "architecture-specialist",
+      "name": "Architecture & System Design Specialist",
+      "description": "Specialized in system design, software architecture, API design, and scalable solutions",
+      "file": "agents/06-architecture-design.md"
+    },
+    {
+      "id": "security-specialist",
+      "name": "Security & Quality Assurance Specialist",
+      "description": "Expert in cybersecurity, QA testing, secure coding, and compliance standards",
+      "file": "agents/07-security-qa.md"
+    }
+  ],
+  "commands": [
+    {
+      "name": "learn",
+      "description": "Start a personalized learning journey through the developer roadmap",
+      "file": "commands/learn.md"
+    },
+    {
+      "name": "browse-roadmap",
+      "description": "Browse and explore all 71 available developer roadmaps",
+      "file": "commands/browse-roadmap.md"
+    },
+    {
+      "name": "assess-skills",
+      "description": "Assess your current knowledge level across different specializations",
+      "file": "commands/assess-skills.md"
+    },
+    {
+      "name": "marketplace-explore",
+      "description": "Explore recommended learning paths and career tracks",
+      "file": "commands/marketplace-explore.md"
+    }
+  ],
+  "skills": [
+    {
+      "name": "frontend-technologies",
+      "description": "Master frontend development tools and frameworks",
+      "file": "skills/frontend-technologies/SKILL.md"
+    },
+    {
+      "name": "backend-technologies",
+      "description": "Learn backend development frameworks and patterns",
+      "file": "skills/backend-technologies/SKILL.md"
+    },
+    {
+      "name": "devops-tools",
+      "description": "Understand DevOps practices and infrastructure tools",
+      "file": "skills/devops-tools/SKILL.md"
+    },
+    {
+      "name": "ai-ml-fundamentals",
+      "description": "Master AI and machine learning concepts",
+      "file": "skills/ai-ml-fundamentals/SKILL.md"
+    },
+    {
+      "name": "database-design",
+      "description": "Learn database design and optimization techniques",
+      "file": "skills/database-design/SKILL.md"
+    },
+    {
+      "name": "system-architecture",
+      "description": "Master system design and architectural patterns",
+      "file": "skills/system-architecture/SKILL.md"
+    },
+    {
+      "name": "security-best-practices",
+      "description": "Learn security principles and secure coding practices",
+      "file": "skills/security-best-practices/SKILL.md"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "learning-progress-tracker",
+      "file": "hooks/hooks.json"
+    }
+  ]
+}
