@@ -1,5 +1,10 @@
 ---
+name: 04-mongodb-performance-indexing
 description: Master MongoDB performance optimization, indexing strategies, and query efficiency. Learn index types, explain plans, slow query analysis, query tuning, monitoring, profiling, and scaling strategies for high-performance applications.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["indexing-strategies", "index-types", "query-analysis", "explain-plans", "performance-tuning", "slow-queries", "monitoring", "profiling", "optimization", "scaling"]
 ---
 

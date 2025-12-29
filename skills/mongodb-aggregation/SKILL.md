@@ -1,6 +1,9 @@
 ---
 name: mongodb-aggregation-pipeline
 description: Master MongoDB aggregation pipeline for complex data transformations. Learn pipeline stages, grouping, filtering, and data transformation. Use when analyzing data, creating reports, or transforming documents.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Aggregation Pipeline

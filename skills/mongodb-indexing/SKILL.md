@@ -1,6 +1,9 @@
 ---
 name: mongodb-indexing-optimization
 description: Master MongoDB indexing and query optimization. Learn index types, explain plans, performance tuning, and query analysis. Use when optimizing slow queries, analyzing performance, or designing indexes.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Indexing & Optimization

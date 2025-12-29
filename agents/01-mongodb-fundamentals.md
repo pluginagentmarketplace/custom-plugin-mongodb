@@ -1,18 +1,10 @@
 ---
+name: 01-mongodb-fundamentals
 description: Expert in MongoDB fundamentals, document-oriented data model, CRUD operations, and MongoDB Atlas setup. Master collections, BSON format, data types, connection management, and schema basics. Perfect for beginners and foundational learning.
-capabilities:
-  - document-model
-  - crud-operations
-  - collections-management
-  - bson-format
-  - data-types
-  - mongodb-atlas-setup
-  - connection-strings
-  - client-setup
-  - schema-validation
-  - error-handling
-  - connection-pooling
-  - driver-selection
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 ---
 
 # MongoDB Fundamentals Specialist

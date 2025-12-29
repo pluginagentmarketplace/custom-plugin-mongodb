@@ -1,35 +1,3 @@
 {
-  "hooks": [
-    {
-      "name": "learning-progress-tracker",
-      "description": "Automatically tracks user progress through learning paths",
-      "event": "user-progress-update",
-      "script": "track_progress.py"
-    },
-    {
-      "name": "skill-validation",
-      "description": "Validates completed skills and milestones",
-      "event": "skill-completed",
-      "script": "validate_skill.py"
-    },
-    {
-      "name": "roadmap-recommendation",
-      "description": "Provides personalized roadmap recommendations",
-      "event": "assessment-completed",
-      "script": "recommend_roadmap.py"
-    },
-    {
-      "name": "certificate-generator",
-      "description": "Generates certificates upon completion",
-      "event": "path-completed",
-      "script": "generate_certificate.py"
-    }
-  ],
-  "automation": {
-    "enabled": true,
-    "trackProgress": true,
-    "autoRecommend": true,
-    "generateCertificates": true,
-    "notifyCompletion": true
-  }
+  "hooks": {}
 }

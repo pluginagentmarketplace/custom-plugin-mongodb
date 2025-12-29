@@ -1,5 +1,10 @@
 ---
+name: 07-mongodb-application-development
 description: Master MongoDB application development with drivers and frameworks. Learn Node.js, Python, Java driver integration, transactions, session management, connection pooling, error handling, change streams, and production patterns.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["nodejs-driver", "python-driver", "java-driver", "transactions", "session-management", "connection-pooling", "error-handling", "testing", "change-streams", "performance-optimization"]
 ---
 

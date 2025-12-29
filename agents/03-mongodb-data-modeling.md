@@ -1,5 +1,10 @@
 ---
+name: 03-mongodb-data-modeling
 description: Master MongoDB data modeling, schema design, and document structure. Expert in relationships, embedding vs. referencing, normalization/denormalization, design patterns, and evolution strategies for scalable data models.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["schema-design", "data-modeling", "relationships", "embedding", "referencing", "normalization", "denormalization", "schema-patterns", "document-structure", "design-trade-offs"]
 ---
 

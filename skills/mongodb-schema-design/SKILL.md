@@ -1,6 +1,9 @@
 ---
 name: mongodb-schema-design
 description: Master MongoDB schema design and data modeling patterns. Learn embedding vs referencing, relationships, normalization, and schema evolution. Use when designing databases, normalizing data, or optimizing queries.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Schema Design

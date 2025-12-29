@@ -1,6 +1,9 @@
 ---
 name: mongodb-index-creation
 description: Master MongoDB index creation and types. Learn single-field, compound, unique, text, geospatial, and TTL indexes. Optimize query performance dramatically with proper indexing.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Index Creation & Types

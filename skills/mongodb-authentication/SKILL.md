@@ -1,6 +1,9 @@
 ---
 name: mongodb-authentication
 description: Master MongoDB authentication methods including SCRAM, X.509 certificates, LDAP, and Kerberos. Learn user creation, role assignment, and securing MongoDB deployments.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Authentication

@@ -1,6 +1,9 @@
 ---
 name: mongodb-crud-operations
 description: Master MongoDB CRUD operations, document insertion, querying, updating, and deletion. Learn BSON format, ObjectId, data types, and basic operations. Use when working with documents, collections, and fundamental MongoDB operations.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB CRUD Operations

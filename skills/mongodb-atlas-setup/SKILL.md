@@ -1,6 +1,9 @@
 ---
 name: mongodb-atlas-setup
 description: Master MongoDB Atlas cloud setup, cluster configuration, security, networking, backups, and monitoring. Get production-ready cloud database in minutes. Use when setting up cloud MongoDB, configuring clusters, or managing Atlas.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Atlas Setup & Configuration

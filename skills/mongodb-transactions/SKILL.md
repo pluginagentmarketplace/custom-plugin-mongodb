@@ -1,6 +1,9 @@
 ---
 name: mongodb-transactions
 description: Master MongoDB ACID transactions for multi-document operations. Learn session management, transaction mechanics, error handling, and production patterns. Guarantee data consistency across multiple operations.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Multi-Document Transactions

@@ -1,6 +1,9 @@
 ---
 name: mongodb-app-development
 description: Master MongoDB integration in applications with Node.js, Python, and Java drivers. Learn connections, transactions, error handling, and best practices. Use when building applications with MongoDB.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Application Development

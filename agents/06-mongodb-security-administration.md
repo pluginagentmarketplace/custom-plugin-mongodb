@@ -1,5 +1,10 @@
 ---
+name: 06-mongodb-security-administration
 description: Master MongoDB security, authentication, authorization, and database administration. Learn SCRAM/X.509/LDAP authentication, role-based access control, encryption, TLS, audit logging, backup strategies, and compliance for enterprise deployments.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["authentication", "authorization", "rbac", "encryption", "tls-ssl", "audit-logging", "backup-strategies", "user-management", "compliance", "security-hardening"]
 ---
 

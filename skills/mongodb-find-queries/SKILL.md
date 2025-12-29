@@ -1,6 +1,9 @@
 ---
 name: mongodb-find-queries
 description: Master MongoDB find queries with filters, projections, sorting, and pagination. Learn query operators, comparison, logical operators, and real-world query patterns. Use when retrieving data from MongoDB collections.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Find Queries

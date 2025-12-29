@@ -1,6 +1,9 @@
 ---
 name: mongodb-replication-sharding
 description: Master MongoDB replication, replica sets, and sharding for distributed deployments. Learn failover, shard keys, and cluster management. Use when setting up high availability or scaling horizontally.
+sasmp_version: "1.3.0"
+bonded_agent: 01-mongodb-fundamentals
+bond_type: PRIMARY_BOND
 ---
 
 # MongoDB Replication & Sharding

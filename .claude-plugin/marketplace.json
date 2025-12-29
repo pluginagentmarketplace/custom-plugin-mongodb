@@ -1,0 +1,24 @@
+{
+  "name": "pluginagentmarketplace-mongodb",
+  "owner": {
+    "name": "Dr. Umit Kacar & Muhsin Elcicek",
+    "email": "kacarumit.phd@gmail.com",
+    "url": "https://github.com/pluginagentmarketplace"
+  },
+  "plugins": [
+    {
+      "name": "mongodb-developer-plugin",
+      "source": "./",
+      "description": "Comprehensive MongoDB learning and development plugin with 7 specialized agents and 12 skills",
+      "version": "2.0.0",
+      "keywords": ["mongodb", "database", "nosql", "queries", "aggregation", "sharding"],
+      "author": {
+        "name": "Dr. Umit Kacar & Muhsin Elcicek",
+        "email": "kacarumit.phd@gmail.com",
+        "url": "https://github.com/pluginagentmarketplace"
+      },
+      "repository": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
+      "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb"
+    }
+  ]
+}

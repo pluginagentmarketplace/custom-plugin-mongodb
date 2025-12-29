@@ -1,5 +1,10 @@
 ---
+name: 05-mongodb-replication-sharding
 description: Master MongoDB replication, sharding, clustering, and high availability. Learn replica sets, failover, shard key design, distributed architecture, multi-region deployments, and disaster recovery for planet-scale systems.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["replication", "replica-sets", "sharding", "shard-keys", "cluster-architecture", "failover", "backup-recovery", "multi-region", "distributed-systems", "high-availability"]
 ---
 

@@ -1,8 +1,13 @@
 {
-  "name": "MongoDB Developer Plugin",
-  "version": "1.0.0",
-  "author": "MongoDB Developer Community",
-  "description": "Comprehensive MongoDB learning and development plugin with 7 specialized agents. Master MongoDB fundamentals, queries, aggregation, data modeling, performance, replication, security, and application development.",
+  "name": "mongodb-developer-plugin",
+  "version": "2.0.0",
+  "description": "Comprehensive MongoDB learning and development plugin with 7 specialized agents and 12 skills. Master MongoDB fundamentals, queries, aggregation, data modeling, performance, replication, security, and application development.",
+  "author": {
+    "name": "Dr. Umit Kacar & Muhsin Elcicek",
+    "email": "kacarumit.phd@gmail.com",
+    "url": "https://github.com/pluginagentmarketplace"
+  },
+  "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
   "repository": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
   "license": "MIT",
   "keywords": [
@@ -16,140 +21,38 @@
     "aggregation",
     "sharding",
     "replication",
-    "security"
+    "security",
+    "claude-code",
+    "plugin"
   ],
   "agents": [
-    {
-      "id": "mongodb-fundamentals",
-      "name": "MongoDB Fundamentals Specialist",
-      "description": "Expert in MongoDB basics, document model, CRUD operations, and collections. Perfect for beginners.",
-      "file": "agents/01-mongodb-fundamentals.md"
-    },
-    {
-      "id": "mongodb-queries",
-      "name": "MongoDB Query & Aggregation Specialist",
-      "description": "Specialized in query language, aggregation pipeline, complex filtering, and data transformation.",
-      "file": "agents/02-mongodb-queries-aggregation.md"
-    },
-    {
-      "id": "mongodb-modeling",
-      "name": "MongoDB Data Modeling Specialist",
-      "description": "Expert in schema design, relationships, normalization/denormalization, and data patterns.",
-      "file": "agents/03-mongodb-data-modeling.md"
-    },
-    {
-      "id": "mongodb-performance",
-      "name": "MongoDB Performance & Indexing Specialist",
-      "description": "Specialized in indexing strategies, query optimization, and performance monitoring.",
-      "file": "agents/04-mongodb-performance-indexing.md"
-    },
-    {
-      "id": "mongodb-scaling",
-      "name": "MongoDB Replication & Sharding Specialist",
-      "description": "Expert in replica sets, sharding, high availability, and distributed architectures.",
-      "file": "agents/05-mongodb-replication-sharding.md"
-    },
-    {
-      "id": "mongodb-security",
-      "name": "MongoDB Security & Administration Specialist",
-      "description": "Specialized in authentication, authorization, encryption, backup, and operational security.",
-      "file": "agents/06-mongodb-security-administration.md"
-    },
-    {
-      "id": "mongodb-development",
-      "name": "MongoDB Application Development Specialist",
-      "description": "Expert in driver integration, transactions, error handling, and production development patterns.",
-      "file": "agents/07-mongodb-application-development.md"
-    }
-  ],
-  "commands": [
-    {
-      "name": "learn-mongodb",
-      "description": "Start a personalized MongoDB learning journey",
-      "file": "commands/learn-mongodb.md"
-    },
-    {
-      "name": "query-builder",
-      "description": "Build and optimize MongoDB queries interactively",
-      "file": "commands/query-builder.md"
-    },
-    {
-      "name": "deployment-guide",
-      "description": "Get guidance on MongoDB deployment strategies",
-      "file": "commands/deployment-guide.md"
-    },
-    {
-      "name": "tutorial",
-      "description": "Follow step-by-step MongoDB tutorials and walkthroughs",
-      "file": "commands/tutorial.md"
-    }
+    "./agents/01-mongodb-fundamentals.md",
+    "./agents/02-mongodb-queries-aggregation.md",
+    "./agents/03-mongodb-data-modeling.md",
+    "./agents/04-mongodb-performance-indexing.md",
+    "./agents/05-mongodb-replication-sharding.md",
+    "./agents/06-mongodb-security-administration.md",
+    "./agents/07-mongodb-application-development.md"
   ],
   "skills": [
-    {
-      "name": "mongodb-atlas-setup",
-      "description": "Master MongoDB Atlas cloud setup, cluster configuration, backups, and monitoring. Get production-ready cloud database.",
-      "file": "skills/mongodb-atlas-setup/SKILL.md"
-    },
-    {
-      "name": "mongodb-crud-operations",
-      "description": "Master MongoDB CRUD operations and document manipulation",
-      "file": "skills/mongodb-crud/SKILL.md"
-    },
-    {
-      "name": "mongodb-find-queries",
-      "description": "Master find() queries with filters, operators, sorting, and pagination. Extract data efficiently.",
-      "file": "skills/mongodb-find-queries/SKILL.md"
-    },
-    {
-      "name": "mongodb-aggregation-pipeline",
-      "description": "Master aggregation pipeline for data transformation",
-      "file": "skills/mongodb-aggregation/SKILL.md"
-    },
-    {
-      "name": "mongodb-schema-design",
-      "description": "Master schema design and data modeling patterns",
-      "file": "skills/mongodb-schema-design/SKILL.md"
-    },
-    {
-      "name": "mongodb-index-creation",
-      "description": "Master index creation and types. Dramatically improve query performance with proper indexing.",
-      "file": "skills/mongodb-index-creation/SKILL.md"
-    },
-    {
-      "name": "mongodb-indexing-optimization",
-      "description": "Master indexing and query optimization techniques",
-      "file": "skills/mongodb-indexing/SKILL.md"
-    },
-    {
-      "name": "mongodb-transactions",
-      "description": "Master MongoDB ACID transactions for multi-document operations. Guarantee data consistency.",
-      "file": "skills/mongodb-transactions/SKILL.md"
-    },
-    {
-      "name": "mongodb-replication-sharding",
-      "description": "Master replication, sharding, and distributed deployments",
-      "file": "skills/mongodb-replication/SKILL.md"
-    },
-    {
-      "name": "mongodb-authentication",
-      "description": "Master MongoDB authentication methods including SCRAM, X.509, and LDAP. Secure your deployments.",
-      "file": "skills/mongodb-authentication/SKILL.md"
-    },
-    {
-      "name": "mongodb-security-admin",
-      "description": "Master MongoDB security and operational administration",
-      "file": "skills/mongodb-security/SKILL.md"
-    },
-    {
-      "name": "mongodb-app-development",
-      "description": "Master MongoDB integration in production applications",
-      "file": "skills/mongodb-integration/SKILL.md"
-    }
+    "./skills/mongodb-aggregation/SKILL.md",
+    "./skills/mongodb-atlas-setup/SKILL.md",
+    "./skills/mongodb-authentication/SKILL.md",
+    "./skills/mongodb-crud/SKILL.md",
+    "./skills/mongodb-find-queries/SKILL.md",
+    "./skills/mongodb-index-creation/SKILL.md",
+    "./skills/mongodb-indexing/SKILL.md",
+    "./skills/mongodb-integration/SKILL.md",
+    "./skills/mongodb-replication/SKILL.md",
+    "./skills/mongodb-schema-design/SKILL.md",
+    "./skills/mongodb-security/SKILL.md",
+    "./skills/mongodb-transactions/SKILL.md"
   ],
-  "hooks": [
-    {
-      "name": "learning-progress-tracker",
-      "file": "hooks/hooks.json"
-    }
-  ]
+  "commands": [
+    "./commands/deployment-guide.md",
+    "./commands/learn-mongodb.md",
+    "./commands/query-builder.md",
+    "./commands/tutorial.md"
+  ],
+  "hooks": "./hooks/hooks.json"
 }

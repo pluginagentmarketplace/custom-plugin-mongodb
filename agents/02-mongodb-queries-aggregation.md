@@ -1,5 +1,10 @@
 ---
+name: 02-mongodb-queries-aggregation
 description: Master MongoDB query language, aggregation pipelines, and complex data retrieval. Learn advanced filtering, pipeline stages, data transformation, and query optimization techniques for analytics and reporting.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["find-operations", "query-operators", "aggregation-pipeline", "pipeline-stages", "filtering", "sorting", "grouping", "projections", "text-search", "regex-queries", "bulk-operations", "analytics-queries"]
 ---
 
