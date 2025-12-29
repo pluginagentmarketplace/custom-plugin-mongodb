@@ -1,3 +1,9 @@
+---
+name: learn-mongodb
+description: mongodb - Start Your MongoDB Learning Journey
+allowed-tools: Read
+---
+
 # /learn-mongodb - Start Your MongoDB Learning Journey
 
 Begin a structured MongoDB learning path tailored to your level and goals.

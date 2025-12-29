@@ -1,3 +1,9 @@
+---
+name: deployment-guide
+description: guide - MongoDB Deployment Strategies
+allowed-tools: Read
+---
+
 # /deployment-guide - MongoDB Deployment Strategies
 
 Get guidance on deploying MongoDB for different scenarios and requirements.

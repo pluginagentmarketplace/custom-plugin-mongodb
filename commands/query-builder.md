@@ -1,3 +1,9 @@
+---
+name: query-builder
+description: builder - MongoDB Query Helper
+allowed-tools: Read
+---
+
 # /query-builder - MongoDB Query Helper
 
 Build and optimize MongoDB queries with interactive guidance.

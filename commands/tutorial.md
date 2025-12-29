@@ -1,3 +1,9 @@
+---
+name: tutorial
+description: MongoDB Tutorials & Walkthroughs
+allowed-tools: Read
+---
+
 # /tutorial - MongoDB Tutorials & Walkthroughs
 
 Follow step-by-step tutorials to learn MongoDB hands-on.
