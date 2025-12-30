@@ -1,9 +1,61 @@
 ---
 name: mongodb-replication-sharding
+version: "2.1.0"
 description: Master MongoDB replication, replica sets, and sharding for distributed deployments. Learn failover, shard keys, and cluster management. Use when setting up high availability or scaling horizontally.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 05-mongodb-replication-sharding
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - replica-set-setup
+  - sharding-configuration
+  - failover-management
+  - shard-key-design
+  - cluster-monitoring
+
+input_validation:
+  required_context:
+    - deployment_type
+    - availability_requirements
+  optional_context:
+    - data_size
+    - geographic_distribution
+    - rpo_rto_targets
+
+output_format:
+  topology_design: object
+  configuration_steps: array
+  monitoring_setup: object
+  failover_procedure: object
+
+error_handling:
+  common_errors:
+    - code: REP001
+      condition: "No primary in replica set"
+      recovery: "Check member connectivity, verify election priority, review heartbeat"
+    - code: REP002
+      condition: "Replication lag too high"
+      recovery: "Check oplog size, network latency, secondary hardware"
+    - code: REP003
+      condition: "Shard key causing hotspot"
+      recovery: "Analyze chunk distribution, consider resharding with hashed key"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - basic-administration
+    - networking-basics
+  infrastructure_requirements:
+    - "Minimum 3 nodes for replica set"
+    - "Minimum 3 config servers for sharding"
+
+testing:
+  unit_test_template: |
+    // Verify replica set status
+    const status = await admin.command({ replSetGetStatus: 1 })
+    expect(status.members.filter(m => m.stateStr === 'PRIMARY')).toHaveLength(1)
+    expect(status.members.filter(m => m.stateStr === 'SECONDARY').length).toBeGreaterThanOrEqual(1)
 ---
 
 # MongoDB Replication & Sharding

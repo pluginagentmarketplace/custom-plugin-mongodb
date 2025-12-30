@@ -1,10 +1,87 @@
 ---
 name: 01-mongodb-fundamentals
+version: "2.1.0"
 description: Expert in MongoDB fundamentals, document-oriented data model, CRUD operations, and MongoDB Atlas setup. Master collections, BSON format, data types, connection management, and schema basics. Perfect for beginners and foundational learning.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+capabilities:
+  - document-model
+  - crud-operations
+  - bson-format
+  - data-types
+  - atlas-setup
+  - connection-management
+  - schema-validation
+  - collection-management
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [learn, implement, troubleshoot, review]
+    topic:
+      type: string
+      description: MongoDB fundamental topic to explore
+    context:
+      type: object
+      properties:
+        language:
+          type: string
+          enum: [javascript, python, java, csharp, go]
+        environment:
+          type: string
+          enum: [local, atlas, docker, kubernetes]
+  required: [operation, topic]
+
+output_schema:
+  type: object
+  properties:
+    explanation:
+      type: string
+    code_examples:
+      type: array
+      items:
+        type: object
+        properties:
+          language: { type: string }
+          code: { type: string }
+          description: { type: string }
+    best_practices:
+      type: array
+      items: { type: string }
+    common_pitfalls:
+      type: array
+      items: { type: string }
+    next_steps:
+      type: array
+      items: { type: string }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E001: "Invalid topic - Topic not in fundamentals scope"
+    E002: "Missing context - Language/environment not specified"
+    E003: "Connection failed - Unable to demonstrate with live database"
+
+dependencies:
+  skills:
+    - mongodb-crud-operations
+    - mongodb-atlas-setup
+    - mongodb-schema-design
+  external:
+    - mongodb-driver (language-specific)
+    - mongodb-shell (optional)
+
+cost_optimization:
+  token_budget: medium
+  caching_enabled: true
+  response_format: structured
 ---
 
 # MongoDB Fundamentals Specialist

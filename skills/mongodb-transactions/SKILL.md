@@ -1,9 +1,71 @@
 ---
 name: mongodb-transactions
+version: "2.1.0"
 description: Master MongoDB ACID transactions for multi-document operations. Learn session management, transaction mechanics, error handling, and production patterns. Guarantee data consistency across multiple operations.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 07-mongodb-application-development
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - session-management
+  - multi-document-transactions
+  - retry-logic
+  - error-recovery
+  - consistency-guarantees
+
+input_validation:
+  required_context:
+    - operations_list
+    - consistency_requirement
+  optional_context:
+    - read_concern
+    - write_concern
+    - timeout_ms
+
+output_format:
+  transaction_code: string
+  session_handling: string
+  error_handling: string
+  retry_logic: string
+  rollback_procedure: string
+
+error_handling:
+  common_errors:
+    - code: TXN001
+      condition: "TransientTransactionError"
+      recovery: "Retry entire transaction with exponential backoff"
+    - code: TXN002
+      condition: "UnknownTransactionCommitResult"
+      recovery: "Check operation idempotency, verify state before retry"
+    - code: TXN003
+      condition: "Transaction timeout"
+      recovery: "Increase maxTransactionLockRequestTimeoutMillis or optimize operations"
+
+prerequisites:
+  mongodb_version: "4.0+ (replica set), 4.2+ (sharded)"
+  required_knowledge:
+    - crud-operations
+    - session-basics
+  deployment_requirements:
+    - "Replica set or sharded cluster"
+    - "Not available on standalone or M0 Atlas"
+
+testing:
+  unit_test_template: |
+    // Test transaction with rollback
+    const session = client.startSession()
+    try {
+      await session.withTransaction(async () => {
+        await collection1.insertOne(doc1, { session })
+        await collection2.insertOne(doc2, { session })
+      })
+      // Verify both inserted
+    } catch (error) {
+      // Verify neither inserted (rollback)
+    } finally {
+      await session.endSession()
+    }
 ---
 
 # MongoDB Multi-Document Transactions

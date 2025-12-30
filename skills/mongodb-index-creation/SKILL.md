@@ -1,9 +1,63 @@
 ---
 name: mongodb-index-creation
+version: "2.1.0"
 description: Master MongoDB index creation and types. Learn single-field, compound, unique, text, geospatial, and TTL indexes. Optimize query performance dramatically with proper indexing.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 04-mongodb-performance-indexing
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - single-field-indexes
+  - compound-indexes
+  - unique-indexes
+  - text-indexes
+  - geospatial-indexes
+  - ttl-indexes
+
+input_validation:
+  required_context:
+    - collection_name
+    - query_patterns
+  optional_context:
+    - existing_indexes
+    - write_frequency
+    - collection_size
+
+output_format:
+  index_definition: object
+  creation_command: string
+  impact_analysis: object
+  maintenance_notes: array
+
+error_handling:
+  common_errors:
+    - code: INDEX001
+      condition: "Duplicate index"
+      recovery: "Check existing indexes, drop duplicate before creating"
+    - code: INDEX002
+      condition: "Background index build failed"
+      recovery: "Check disk space, memory, restart build with background: true"
+    - code: INDEX003
+      condition: "Index too large for memory"
+      recovery: "Consider partial index or remove low-value indexes"
+
+prerequisites:
+  mongodb_version: "4.4+"
+  required_knowledge:
+    - query-patterns
+    - esr-rule
+  performance_baseline:
+    - "Current query latencies documented"
+
+testing:
+  unit_test_template: |
+    // Verify index created and used
+    await collection.createIndex({ field: 1 })
+    const indexes = await collection.indexes()
+    expect(indexes.some(i => i.key.field === 1)).toBe(true)
+    const explain = await collection.find({ field: value }).explain()
+    expect(explain.queryPlanner.winningPlan.inputStage.stage).toBe('IXSCAN')
 ---
 
 # MongoDB Index Creation & Types

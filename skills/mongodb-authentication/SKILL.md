@@ -1,9 +1,61 @@
 ---
 name: mongodb-authentication
+version: "2.1.0"
 description: Master MongoDB authentication methods including SCRAM, X.509 certificates, LDAP, and Kerberos. Learn user creation, role assignment, and securing MongoDB deployments.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 06-mongodb-security-administration
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - scram-authentication
+  - x509-certificates
+  - ldap-integration
+  - user-management
+  - role-assignment
+
+input_validation:
+  required_context:
+    - auth_method
+    - environment
+  optional_context:
+    - existing_users
+    - ldap_config
+    - certificate_chain
+
+output_format:
+  user_config: object
+  connection_string: string
+  verification_steps: array
+  security_checklist: array
+
+error_handling:
+  common_errors:
+    - code: AUTH001
+      condition: "Authentication failed"
+      recovery: "Verify username, password, authSource database"
+    - code: AUTH002
+      condition: "User not found"
+      recovery: "Check user exists in correct authenticationDatabase"
+    - code: AUTH003
+      condition: "Password policy violation"
+      recovery: "Ensure password meets complexity requirements"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - mongodb-basics
+    - user-management
+  security_requirements:
+    - "mongod started with --auth or authorization: enabled"
+
+testing:
+  unit_test_template: |
+    // Verify authentication
+    const client = new MongoClient(uri, { auth: { username, password } })
+    await client.connect()
+    const status = await client.db('admin').command({ connectionStatus: 1 })
+    expect(status.authInfo.authenticatedUsers[0].user).toBe(username)
 ---
 
 # MongoDB Authentication

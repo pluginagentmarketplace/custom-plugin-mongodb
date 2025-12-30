@@ -1,9 +1,60 @@
 ---
 name: mongodb-indexing-optimization
+version: "2.1.0"
 description: Master MongoDB indexing and query optimization. Learn index types, explain plans, performance tuning, and query analysis. Use when optimizing slow queries, analyzing performance, or designing indexes.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 04-mongodb-performance-indexing
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - index-design
+  - explain-analysis
+  - query-optimization
+  - performance-profiling
+  - esr-rule-application
+
+input_validation:
+  required_context:
+    - query_pattern
+    - collection_info
+  optional_context:
+    - explain_output
+    - current_indexes
+    - collection_size
+
+output_format:
+  index_recommendation: object
+  explain_interpretation: string
+  performance_impact: string
+  trade_offs: array
+
+error_handling:
+  common_errors:
+    - code: IDX001
+      condition: "COLLSCAN in explain output"
+      recovery: "Create index on filter fields following ESR rule"
+    - code: IDX002
+      condition: "Index not being used"
+      recovery: "Check query shape, hint usage, or index prefix"
+    - code: IDX003
+      condition: "Too many indexes"
+      recovery: "Review index usage stats, remove unused indexes"
+
+prerequisites:
+  mongodb_version: "4.4+"
+  required_knowledge:
+    - basic-queries
+    - explain-command
+  performance_baseline:
+    - "Know current query latencies before optimization"
+
+testing:
+  unit_test_template: |
+    // Verify index is used
+    const explain = await collection.find(query).explain('executionStats')
+    expect(explain.executionStats.executionStages.stage).toBe('IXSCAN')
+    expect(explain.executionStats.totalDocsExamined).toBeLessThanOrEqual(limit)
 ---
 
 # MongoDB Indexing & Optimization

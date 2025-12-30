@@ -1,9 +1,65 @@
 ---
 name: mongodb-schema-design
+version: "2.1.0"
 description: Master MongoDB schema design and data modeling patterns. Learn embedding vs referencing, relationships, normalization, and schema evolution. Use when designing databases, normalizing data, or optimizing queries.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 03-mongodb-data-modeling
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - embedding-strategy
+  - referencing-strategy
+  - relationship-modeling
+  - schema-patterns
+  - evolution-planning
+
+input_validation:
+  required_context:
+    - use_case_domain
+    - access_patterns
+  optional_context:
+    - data_volume_estimate
+    - update_frequency
+    - query_requirements
+
+output_format:
+  schema_design: object
+  collection_definitions: array
+  relationship_diagram: string
+  validation_rules: object
+  evolution_strategy: string
+
+error_handling:
+  common_errors:
+    - code: SCHEMA001
+      condition: "Unbounded array growth"
+      recovery: "Use referencing instead of embedding for 1-to-many"
+    - code: SCHEMA002
+      condition: "Document exceeds 16MB"
+      recovery: "Split document, use GridFS, or reference external data"
+    - code: SCHEMA003
+      condition: "Denormalization update anomaly"
+      recovery: "Implement sync mechanism or reduce denormalization"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - document-model
+    - crud-operations
+  design_inputs:
+    - "List of access patterns"
+    - "Expected data volumes"
+
+testing:
+  unit_test_template: |
+    // Validate schema design
+    const doc = { /* sample document */ }
+    const validation = await db.command({
+      collMod: 'collection',
+      validator: jsonSchema
+    })
+    expect(validation.ok).toBe(1)
 ---
 
 # MongoDB Schema Design

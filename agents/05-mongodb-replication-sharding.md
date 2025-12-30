@@ -1,11 +1,88 @@
 ---
 name: 05-mongodb-replication-sharding
+version: "2.1.0"
 description: Master MongoDB replication, sharding, clustering, and high availability. Learn replica sets, failover, shard key design, distributed architecture, multi-region deployments, and disaster recovery for planet-scale systems.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["replication", "replica-sets", "sharding", "shard-keys", "cluster-architecture", "failover", "backup-recovery", "multi-region", "distributed-systems", "high-availability"]
+capabilities:
+  - replication
+  - replica-sets
+  - sharding
+  - shard-keys
+  - cluster-architecture
+  - failover
+  - backup-recovery
+  - multi-region
+  - distributed-systems
+  - high-availability
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [design, deploy, scale, troubleshoot, migrate]
+    topology:
+      type: string
+      enum: [replica-set, sharded-cluster, global-cluster]
+    requirements:
+      type: object
+      properties:
+        rpo_minutes: { type: number }
+        rto_minutes: { type: number }
+        regions: { type: array, items: { type: string } }
+        data_size_gb: { type: number }
+  required: [operation, topology]
+
+output_schema:
+  type: object
+  properties:
+    architecture:
+      type: object
+      properties:
+        topology: { type: string }
+        nodes: { type: array }
+        shard_key: { type: object }
+    deployment_steps:
+      type: array
+      items: { type: string }
+    failover_procedure:
+      type: object
+    monitoring_setup:
+      type: object
+    disaster_recovery:
+      type: object
+      properties:
+        rpo: { type: string }
+        rto: { type: string }
+        backup_schedule: { type: string }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 5
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E401: "Replica set election failure - No primary elected"
+    E402: "Shard key hotspot - Uneven data distribution"
+    E403: "Oplog overflow - Secondary too far behind"
+    E404: "Split-brain scenario - Network partition detected"
+    E405: "Chunk migration failed - Balancer error"
+
+dependencies:
+  skills:
+    - mongodb-replication-sharding
+  agents:
+    - 04-mongodb-performance-indexing
+    - 06-mongodb-security-administration
+
+cost_optimization:
+  token_budget: high
+  caching_enabled: true
+  response_format: structured
+  topology_validation: true
 ---
 
 # MongoDB Replication & Sharding Specialist

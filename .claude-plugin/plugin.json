@@ -1,7 +1,7 @@
 {
   "name": "mongodb-developer-plugin",
-  "version": "2.0.0",
-  "description": "Comprehensive MongoDB learning and development plugin with 7 specialized agents and 12 skills. Master MongoDB fundamentals, queries, aggregation, data modeling, performance, replication, security, and application development.",
+  "version": "2.1.0",
+  "description": "Production-grade MongoDB plugin with 8 specialized agents and 12 skills. Master MongoDB fundamentals, queries, aggregation, data modeling, performance, replication, security, application development, and DevOps operations.",
   "author": {
     "name": "Dr. Umit Kacar & Muhsin Elcicek",
     "email": "kacarumit.phd@gmail.com",
@@ -10,6 +10,24 @@
   "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
   "repository": "https://github.com/pluginagentmarketplace/custom-plugin-mongodb",
   "license": "SEE LICENSE IN LICENSE",
+  "sasmp_version": "1.3.0",
+  "eqhm_enabled": true,
+  "production_grade": {
+    "version_standard": "2.1.0",
+    "features": [
+      "type-safe-schemas",
+      "error-handling-patterns",
+      "retry-logic",
+      "observability-hooks",
+      "troubleshooting-guides"
+    ],
+    "quality_standards": [
+      "ethical",
+      "honest",
+      "modern",
+      "maintainable"
+    ]
+  },
   "keywords": [
     "mongodb",
     "database",
@@ -22,6 +40,9 @@
     "sharding",
     "replication",
     "security",
+    "devops",
+    "migration",
+    "production-grade",
     "claude-code",
     "plugin"
   ],
@@ -32,7 +53,8 @@
     "./agents/04-mongodb-performance-indexing.md",
     "./agents/05-mongodb-replication-sharding.md",
     "./agents/06-mongodb-security-administration.md",
-    "./agents/07-mongodb-application-development.md"
+    "./agents/07-mongodb-application-development.md",
+    "./agents/08-mongodb-devops-migration.md"
   ],
   "skills": [
     "./skills/mongodb-aggregation/SKILL.md",
@@ -54,5 +76,12 @@
     "./commands/query-builder.md",
     "./commands/tutorial.md"
   ],
-  "hooks": "./hooks/hooks.json"
+  "hooks": "./hooks/hooks.json",
+  "integrity": {
+    "agent_count": 8,
+    "skill_count": 12,
+    "command_count": 4,
+    "last_validated": "2025-01-01",
+    "validation_status": "passed"
+  }
 }

@@ -1,9 +1,63 @@
 ---
 name: mongodb-atlas-setup
+version: "2.1.0"
 description: Master MongoDB Atlas cloud setup, cluster configuration, security, networking, backups, and monitoring. Get production-ready cloud database in minutes. Use when setting up cloud MongoDB, configuring clusters, or managing Atlas.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 08-mongodb-devops-migration
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - cluster-provisioning
+  - network-configuration
+  - user-management
+  - backup-configuration
+  - monitoring-setup
+  - performance-advisor
+
+input_validation:
+  required_context:
+    - tier_requirement
+    - region
+  optional_context:
+    - cloud_provider
+    - vpc_peering
+    - backup_schedule
+
+output_format:
+  cluster_config: object
+  connection_string: string
+  security_setup: object
+  monitoring_dashboard: string
+
+error_handling:
+  common_errors:
+    - code: ATLAS001
+      condition: "IP not whitelisted"
+      recovery: "Add IP address to Network Access in Atlas console"
+    - code: ATLAS002
+      condition: "Cluster tier insufficient"
+      recovery: "Upgrade to M10+ for production features"
+    - code: ATLAS003
+      condition: "Connection timeout"
+      recovery: "Check network access, VPC peering, firewall rules"
+
+prerequisites:
+  mongodb_version: "Atlas managed"
+  required_knowledge:
+    - cloud-basics
+    - mongodb-fundamentals
+  account_requirements:
+    - "MongoDB Atlas account"
+    - "Organization and project created"
+
+testing:
+  unit_test_template: |
+    // Verify Atlas connection
+    const client = new MongoClient(atlasUri)
+    await client.connect()
+    const result = await client.db('admin').command({ ping: 1 })
+    expect(result.ok).toBe(1)
 ---
 
 # MongoDB Atlas Setup & Configuration

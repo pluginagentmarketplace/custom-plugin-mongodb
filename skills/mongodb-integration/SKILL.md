@@ -1,9 +1,67 @@
 ---
 name: mongodb-app-development
+version: "2.1.0"
 description: Master MongoDB integration in applications with Node.js, Python, and Java drivers. Learn connections, transactions, error handling, and best practices. Use when building applications with MongoDB.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 07-mongodb-application-development
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - driver-integration
+  - connection-management
+  - error-handling
+  - transaction-implementation
+  - change-streams
+
+input_validation:
+  required_context:
+    - programming_language
+    - operation_type
+  optional_context:
+    - framework
+    - async_requirement
+    - connection_pool_size
+
+output_format:
+  code_implementation: string
+  error_handling: string
+  connection_config: object
+  best_practices: array
+
+error_handling:
+  common_errors:
+    - code: APP001
+      condition: "Connection pool exhausted"
+      recovery: "Increase maxPoolSize, check for connection leaks"
+    - code: APP002
+      condition: "Network timeout"
+      recovery: "Increase socketTimeoutMS, check network stability"
+    - code: APP003
+      condition: "Driver version incompatibility"
+      recovery: "Update driver to latest stable version"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - chosen-language-basics
+    - mongodb-crud
+  driver_requirements:
+    - "Official MongoDB driver for target language"
+
+testing:
+  unit_test_template: |
+    // Integration test
+    beforeAll(async () => {
+      await client.connect()
+    })
+    afterAll(async () => {
+      await client.close()
+    })
+    it('should perform CRUD operations', async () => {
+      const result = await collection.insertOne({ test: true })
+      expect(result.insertedId).toBeDefined()
+    })
 ---
 
 # MongoDB Application Development

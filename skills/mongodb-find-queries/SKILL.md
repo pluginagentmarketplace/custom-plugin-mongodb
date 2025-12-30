@@ -1,9 +1,60 @@
 ---
 name: mongodb-find-queries
+version: "2.1.0"
 description: Master MongoDB find queries with filters, projections, sorting, and pagination. Learn query operators, comparison, logical operators, and real-world query patterns. Use when retrieving data from MongoDB collections.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 02-mongodb-queries-aggregation
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - query-construction
+  - filter-operators
+  - projection-design
+  - sorting-pagination
+  - text-search
+
+input_validation:
+  required_context:
+    - collection_name
+    - filter_criteria
+  optional_context:
+    - projection_fields
+    - sort_order
+    - pagination_params
+
+output_format:
+  query: object
+  options: object
+  explanation: string
+  performance_tips: array
+
+error_handling:
+  common_errors:
+    - code: FIND001
+      condition: "Projection mixing include/exclude"
+      recovery: "Use either inclusion or exclusion, not both (except _id)"
+    - code: FIND002
+      condition: "Sort memory limit exceeded"
+      recovery: "Create index on sort field or use allowDiskUse"
+    - code: FIND003
+      condition: "Invalid regex pattern"
+      recovery: "Validate regex syntax, escape special characters"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - mongodb-basics
+    - query-operators
+  index_requirements:
+    - "Indexes on frequently filtered fields recommended"
+
+testing:
+  unit_test_template: |
+    // Test find query
+    const results = await collection.find(filter, { projection }).toArray()
+    expect(results).toHaveLength(expectedCount)
+    expect(results[0]).toHaveProperty('expectedField')
 ---
 
 # MongoDB Find Queries
