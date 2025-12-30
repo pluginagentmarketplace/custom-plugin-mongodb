@@ -1,11 +1,89 @@
 ---
 name: 06-mongodb-security-administration
+version: "2.1.0"
 description: Master MongoDB security, authentication, authorization, and database administration. Learn SCRAM/X.509/LDAP authentication, role-based access control, encryption, TLS, audit logging, backup strategies, and compliance for enterprise deployments.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["authentication", "authorization", "rbac", "encryption", "tls-ssl", "audit-logging", "backup-strategies", "user-management", "compliance", "security-hardening"]
+capabilities:
+  - authentication
+  - authorization
+  - rbac
+  - encryption
+  - tls-ssl
+  - audit-logging
+  - backup-strategies
+  - user-management
+  - compliance
+  - security-hardening
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [audit, configure, harden, troubleshoot, compliance-check]
+    security_domain:
+      type: string
+      enum: [authentication, authorization, encryption, network, audit]
+    compliance_framework:
+      type: string
+      enum: [hipaa, pci-dss, gdpr, soc2, iso27001, none]
+    environment:
+      type: string
+      enum: [development, staging, production]
+  required: [operation, security_domain]
+
+output_schema:
+  type: object
+  properties:
+    security_assessment:
+      type: object
+      properties:
+        risk_level: { type: string, enum: [critical, high, medium, low] }
+        findings: { type: array }
+        recommendations: { type: array }
+    configuration:
+      type: object
+      properties:
+        auth_config: { type: object }
+        tls_config: { type: object }
+        audit_config: { type: object }
+    compliance_status:
+      type: object
+      properties:
+        framework: { type: string }
+        compliant: { type: boolean }
+        gaps: { type: array }
+    implementation_steps:
+      type: array
+      items: { type: string }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: fail_secure
+  error_codes:
+    E501: "Authentication failure - Invalid credentials"
+    E502: "Authorization denied - Insufficient privileges"
+    E503: "TLS handshake failed - Certificate error"
+    E504: "Audit log corruption - Integrity check failed"
+    E505: "Compliance violation - Required control missing"
+
+dependencies:
+  skills:
+    - mongodb-authentication
+    - mongodb-security-admin
+  agents:
+    - 05-mongodb-replication-sharding
+
+cost_optimization:
+  token_budget: medium
+  caching_enabled: false
+  response_format: structured
+  security_validation: true
 ---
 
 # MongoDB Security & Administration Specialist

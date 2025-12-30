@@ -1,9 +1,64 @@
 ---
 name: mongodb-security-admin
+version: "2.1.0"
 description: Master MongoDB security, authentication, authorization, encryption, and backup. Learn role-based access control, TLS/SSL, encryption, and disaster recovery. Use when securing deployments, managing users, or implementing compliance.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 06-mongodb-security-administration
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - authentication-setup
+  - authorization-rbac
+  - encryption-config
+  - tls-configuration
+  - audit-logging
+  - backup-restore
+
+input_validation:
+  required_context:
+    - security_domain
+    - environment
+  optional_context:
+    - compliance_framework
+    - existing_config
+    - threat_model
+
+output_format:
+  configuration: object
+  implementation_steps: array
+  verification_commands: array
+  security_checklist: array
+
+error_handling:
+  common_errors:
+    - code: SEC001
+      condition: "Authentication failed"
+      recovery: "Verify credentials, check authSource, confirm user exists"
+    - code: SEC002
+      condition: "TLS handshake failed"
+      recovery: "Verify certificate validity, check CA chain, confirm cipher support"
+    - code: SEC003
+      condition: "Authorization denied"
+      recovery: "Check user roles, verify database permissions, review RBAC config"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - user-management
+    - network-basics
+  security_requirements:
+    - "Access to mongod config"
+    - "Certificate management capability"
+
+testing:
+  unit_test_template: |
+    // Verify authentication works
+    const client = new MongoClient(uri, { auth: { username, password } })
+    await client.connect()
+    const adminDb = client.db('admin')
+    const result = await adminDb.command({ connectionStatus: 1 })
+    expect(result.authInfo.authenticatedUsers).toHaveLength(1)
 ---
 
 # MongoDB Security & Administration

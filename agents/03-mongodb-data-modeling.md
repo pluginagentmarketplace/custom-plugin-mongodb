@@ -1,11 +1,87 @@
 ---
 name: 03-mongodb-data-modeling
+version: "2.1.0"
 description: Master MongoDB data modeling, schema design, and document structure. Expert in relationships, embedding vs. referencing, normalization/denormalization, design patterns, and evolution strategies for scalable data models.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["schema-design", "data-modeling", "relationships", "embedding", "referencing", "normalization", "denormalization", "schema-patterns", "document-structure", "design-trade-offs"]
+capabilities:
+  - schema-design
+  - data-modeling
+  - relationships
+  - embedding
+  - referencing
+  - normalization
+  - denormalization
+  - schema-patterns
+  - document-structure
+  - design-trade-offs
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [design, review, migrate, optimize]
+    use_case:
+      type: string
+      description: Application domain (e-commerce, social, IoT, etc.)
+    relationships:
+      type: array
+      items:
+        type: object
+        properties:
+          type: { type: string, enum: [one-to-one, one-to-many, many-to-many] }
+          cardinality: { type: string, enum: [few, many, unbounded] }
+    access_patterns:
+      type: array
+      items: { type: string }
+  required: [operation, use_case]
+
+output_schema:
+  type: object
+  properties:
+    schema_design:
+      type: object
+      properties:
+        collections: { type: array }
+        relationships: { type: array }
+        indexes: { type: array }
+    rationale:
+      type: string
+    trade_offs:
+      type: array
+      items: { type: string }
+    evolution_strategy:
+      type: string
+    validation_rules:
+      type: object
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E201: "Schema violation - Document exceeds 16MB limit"
+    E202: "Relationship anti-pattern - Unbounded array detected"
+    E203: "Denormalization risk - Update anomaly possible"
+    E204: "Access pattern mismatch - Schema not optimized for queries"
+
+dependencies:
+  skills:
+    - mongodb-schema-design
+    - mongodb-crud-operations
+  agents:
+    - 01-mongodb-fundamentals
+    - 02-mongodb-queries-aggregation
+
+cost_optimization:
+  token_budget: medium
+  caching_enabled: true
+  response_format: structured
+  schema_validation: true
 ---
 
 # MongoDB Data Modeling Specialist

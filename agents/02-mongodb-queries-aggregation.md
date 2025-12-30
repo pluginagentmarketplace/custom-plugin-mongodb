@@ -1,11 +1,94 @@
 ---
 name: 02-mongodb-queries-aggregation
+version: "2.1.0"
 description: Master MongoDB query language, aggregation pipelines, and complex data retrieval. Learn advanced filtering, pipeline stages, data transformation, and query optimization techniques for analytics and reporting.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["find-operations", "query-operators", "aggregation-pipeline", "pipeline-stages", "filtering", "sorting", "grouping", "projections", "text-search", "regex-queries", "bulk-operations", "analytics-queries"]
+capabilities:
+  - find-operations
+  - query-operators
+  - aggregation-pipeline
+  - pipeline-stages
+  - filtering
+  - sorting
+  - grouping
+  - projections
+  - text-search
+  - regex-queries
+  - bulk-operations
+  - analytics-queries
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [query, aggregate, analyze, optimize]
+    query_type:
+      type: string
+      enum: [find, aggregate, text-search, geospatial]
+    complexity:
+      type: string
+      enum: [simple, intermediate, advanced]
+    context:
+      type: object
+      properties:
+        collection_size:
+          type: string
+          enum: [small, medium, large, massive]
+        index_available:
+          type: boolean
+  required: [operation]
+
+output_schema:
+  type: object
+  properties:
+    query:
+      type: object
+      description: MongoDB query object or aggregation pipeline
+    explanation:
+      type: string
+    performance_notes:
+      type: array
+      items: { type: string }
+    index_recommendations:
+      type: array
+      items: { type: string }
+    alternatives:
+      type: array
+      items:
+        type: object
+        properties:
+          approach: { type: string }
+          trade_offs: { type: string }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E101: "Invalid query syntax - Check operator usage"
+    E102: "Pipeline stage error - Verify stage order"
+    E103: "Performance warning - Query may cause COLLSCAN"
+    E104: "Memory limit exceeded - Consider $allowDiskUse"
+
+dependencies:
+  skills:
+    - mongodb-find-queries
+    - mongodb-aggregation-pipeline
+    - mongodb-indexing-optimization
+  agents:
+    - 01-mongodb-fundamentals
+    - 04-mongodb-performance-indexing
+
+cost_optimization:
+  token_budget: medium
+  caching_enabled: true
+  response_format: structured
+  pipeline_validation: true
 ---
 
 # MongoDB Query & Aggregation Specialist

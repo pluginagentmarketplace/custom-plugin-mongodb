@@ -1,11 +1,91 @@
 ---
 name: 07-mongodb-application-development
+version: "2.1.0"
 description: Master MongoDB application development with drivers and frameworks. Learn Node.js, Python, Java driver integration, transactions, session management, connection pooling, error handling, change streams, and production patterns.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["nodejs-driver", "python-driver", "java-driver", "transactions", "session-management", "connection-pooling", "error-handling", "testing", "change-streams", "performance-optimization"]
+capabilities:
+  - nodejs-driver
+  - python-driver
+  - java-driver
+  - transactions
+  - session-management
+  - connection-pooling
+  - error-handling
+  - testing
+  - change-streams
+  - performance-optimization
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [implement, debug, optimize, test, review]
+    language:
+      type: string
+      enum: [javascript, typescript, python, java, csharp, go, rust]
+    framework:
+      type: string
+      enum: [express, fastapi, spring, nestjs, django, none]
+    feature:
+      type: string
+      enum: [crud, transactions, change-streams, connection-pool, error-handling]
+  required: [operation, language]
+
+output_schema:
+  type: object
+  properties:
+    code:
+      type: object
+      properties:
+        language: { type: string }
+        implementation: { type: string }
+        tests: { type: string }
+    architecture:
+      type: object
+      properties:
+        patterns: { type: array }
+        best_practices: { type: array }
+    error_handling:
+      type: object
+      properties:
+        retry_logic: { type: string }
+        error_codes: { type: array }
+    performance:
+      type: object
+      properties:
+        connection_pool_config: { type: object }
+        optimization_tips: { type: array }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E601: "Connection pool exhausted - Increase maxPoolSize"
+    E602: "Transaction timeout - Operation took too long"
+    E603: "Driver version mismatch - Update driver"
+    E604: "Serialization error - BSON encoding failed"
+    E605: "Change stream resume failed - Token expired"
+
+dependencies:
+  skills:
+    - mongodb-app-development
+    - mongodb-transactions
+    - mongodb-crud-operations
+  agents:
+    - 01-mongodb-fundamentals
+    - 04-mongodb-performance-indexing
+
+cost_optimization:
+  token_budget: high
+  caching_enabled: true
+  response_format: structured
+  code_generation: true
 ---
 
 # MongoDB Application Development Specialist

@@ -1,9 +1,60 @@
 ---
 name: mongodb-aggregation-pipeline
+version: "2.1.0"
 description: Master MongoDB aggregation pipeline for complex data transformations. Learn pipeline stages, grouping, filtering, and data transformation. Use when analyzing data, creating reports, or transforming documents.
 sasmp_version: "1.3.0"
-bonded_agent: 01-mongodb-fundamentals
+bonded_agent: 02-mongodb-queries-aggregation
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - pipeline-construction
+  - stage-optimization
+  - data-transformation
+  - analytics-queries
+  - report-generation
+
+input_validation:
+  required_context:
+    - collection_name
+    - desired_output
+  optional_context:
+    - sample_documents
+    - performance_requirements
+    - index_availability
+
+output_format:
+  pipeline: array
+  explanation: string
+  performance_notes: array
+  alternatives: array
+
+error_handling:
+  common_errors:
+    - code: AGG001
+      condition: "Invalid stage syntax"
+      recovery: "Validate stage operators and field references"
+    - code: AGG002
+      condition: "Memory limit exceeded"
+      recovery: "Add $allowDiskUse: true or optimize with $match early"
+    - code: AGG003
+      condition: "Unwind on null array"
+      recovery: "Use preserveNullAndEmptyArrays: true"
+
+prerequisites:
+  mongodb_version: "4.4+"
+  required_knowledge:
+    - basic-crud
+    - query-operators
+  recommended_indexes:
+    - "Fields used in $match stages"
+
+testing:
+  unit_test_template: |
+    // Test aggregation pipeline
+    const result = await collection.aggregate(pipeline).toArray()
+    expect(result).toHaveLength(expectedCount)
+    expect(result[0]).toMatchObject(expectedShape)
 ---
 
 # MongoDB Aggregation Pipeline

@@ -1,9 +1,62 @@
 ---
 name: mongodb-crud-operations
+version: "2.1.0"
 description: Master MongoDB CRUD operations, document insertion, querying, updating, and deletion. Learn BSON format, ObjectId, data types, and basic operations. Use when working with documents, collections, and fundamental MongoDB operations.
 sasmp_version: "1.3.0"
 bonded_agent: 01-mongodb-fundamentals
 bond_type: PRIMARY_BOND
+
+# Production-Grade Skill Configuration
+capabilities:
+  - document-insertion
+  - document-querying
+  - document-updating
+  - document-deletion
+  - bulk-operations
+  - atomic-operations
+
+input_validation:
+  required_context:
+    - operation_type
+    - collection_name
+  optional_context:
+    - document_schema
+    - write_concern
+    - read_preference
+
+output_format:
+  code_example: string
+  explanation: string
+  error_handling: string
+  best_practices: array
+
+error_handling:
+  common_errors:
+    - code: CRUD001
+      condition: "Duplicate key error (11000)"
+      recovery: "Check unique indexes, use upsert if appropriate"
+    - code: CRUD002
+      condition: "Document validation failed"
+      recovery: "Verify document matches schema validation rules"
+    - code: CRUD003
+      condition: "Write concern timeout"
+      recovery: "Increase wtimeout or reduce write concern level"
+
+prerequisites:
+  mongodb_version: "4.0+"
+  required_knowledge:
+    - mongodb-connection
+    - bson-types
+  driver_requirements:
+    - "MongoDB native driver for your language"
+
+testing:
+  unit_test_template: |
+    // Test CRUD operation
+    const insertResult = await collection.insertOne(doc)
+    expect(insertResult.insertedId).toBeDefined()
+    const found = await collection.findOne({_id: insertResult.insertedId})
+    expect(found).toMatchObject(doc)
 ---
 
 # MongoDB CRUD Operations

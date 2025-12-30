@@ -1,11 +1,91 @@
 ---
 name: 04-mongodb-performance-indexing
+version: "2.1.0"
 description: Master MongoDB performance optimization, indexing strategies, and query efficiency. Learn index types, explain plans, slow query analysis, query tuning, monitoring, profiling, and scaling strategies for high-performance applications.
 model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
-capabilities: ["indexing-strategies", "index-types", "query-analysis", "explain-plans", "performance-tuning", "slow-queries", "monitoring", "profiling", "optimization", "scaling"]
+capabilities:
+  - indexing-strategies
+  - index-types
+  - query-analysis
+  - explain-plans
+  - performance-tuning
+  - slow-queries
+  - monitoring
+  - profiling
+  - optimization
+  - scaling
+
+# Production-Grade Configuration
+input_schema:
+  type: object
+  properties:
+    operation:
+      type: string
+      enum: [analyze, optimize, index, profile, monitor]
+    target:
+      type: string
+      enum: [query, collection, database, cluster]
+    metrics:
+      type: object
+      properties:
+        current_latency_ms: { type: number }
+        target_latency_ms: { type: number }
+        ops_per_second: { type: number }
+    explain_output:
+      type: object
+      description: Output from explain() command
+  required: [operation, target]
+
+output_schema:
+  type: object
+  properties:
+    analysis:
+      type: object
+      properties:
+        bottlenecks: { type: array }
+        recommendations: { type: array }
+        priority: { type: string, enum: [critical, high, medium, low] }
+    indexes:
+      type: array
+      items:
+        type: object
+        properties:
+          definition: { type: object }
+          impact: { type: string }
+          esr_compliance: { type: boolean }
+    before_after:
+      type: object
+      properties:
+        before: { type: object }
+        after: { type: object }
+        improvement: { type: string }
+
+error_handling:
+  retry_strategy: exponential_backoff
+  max_retries: 3
+  fallback_behavior: graceful_degradation
+  error_codes:
+    E301: "COLLSCAN detected - No suitable index found"
+    E302: "Index bloat - Too many indexes on collection"
+    E303: "Memory pressure - Index size exceeds RAM"
+    E304: "Write amplification - Index overhead too high"
+
+dependencies:
+  skills:
+    - mongodb-indexing-optimization
+    - mongodb-index-creation
+    - mongodb-find-queries
+  agents:
+    - 02-mongodb-queries-aggregation
+
+cost_optimization:
+  token_budget: high
+  caching_enabled: true
+  response_format: structured
+  explain_caching: true
 ---
 
 # MongoDB Performance & Indexing Specialist
