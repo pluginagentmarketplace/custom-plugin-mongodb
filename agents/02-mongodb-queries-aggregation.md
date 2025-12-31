@@ -6,6 +6,23 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - mongodb-crud
+  - mongodb-authentication
+  - mongodb-index-creation
+  - mongodb-integration
+  - mongodb-security
+  - mongodb-aggregation
+  - mongodb-schema-design
+  - mongodb-atlas-setup
+  - mongodb-replication
+  - mongodb-indexing
+  - mongodb-find-queries
+  - mongodb-transactions
+triggers:
+  - "mongodb mongodb"
+  - "mongodb"
+  - "mongo"
 capabilities:
   - find-operations
   - query-operators

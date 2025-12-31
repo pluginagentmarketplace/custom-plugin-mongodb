@@ -6,6 +6,24 @@ model: sonnet
 tools: Read, Write, Edit, Bash, Grep, Glob
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - mongodb-crud
+  - mongodb-authentication
+  - mongodb-index-creation
+  - mongodb-integration
+  - mongodb-security
+  - mongodb-aggregation
+  - mongodb-schema-design
+  - mongodb-atlas-setup
+  - mongodb-replication
+  - mongodb-indexing
+  - mongodb-find-queries
+  - mongodb-transactions
+triggers:
+  - "mongodb mongodb"
+  - "mongodb"
+  - "mongo"
+  - "mongodb devops"
 capabilities:
   - atlas-operations
   - migration-strategies
