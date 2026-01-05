@@ -63,7 +63,7 @@
 
 ```bash
 # Step 1️⃣ Add the marketplace
-/plugin add marketplace pluginagentmarketplace/custom-plugin-mongodb
+/plugin marketplace add pluginagentmarketplace/custom-plugin-mongodb
 
 # Step 2️⃣ Install the plugin
 /plugin install mongodb-developer-plugin@pluginagentmarketplace-mongodb

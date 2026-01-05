@@ -76,7 +76,6 @@
     "./commands/query-builder.md",
     "./commands/tutorial.md"
   ],
-  "hooks": "./hooks/hooks.json",
   "integrity": {
     "agent_count": 8,
     "skill_count": 12,
